@@ -8,7 +8,7 @@ const Layout = ({ children }) => (
     <Head>
       <title>Mezzadri Propiedades</title>
     </Head>
-    <Box maxWidth='1280px' margin='auto'>
+    <Box maxWidth='1280px' margin='auto' h='100vh'>
       <header>
         <Navbar />
       </header>
