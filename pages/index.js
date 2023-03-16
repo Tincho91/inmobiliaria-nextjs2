@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Flex, Box, Text, Button } from "@chakra-ui/react";
+import { Flex, Box, Text, Button, Fade } from "@chakra-ui/react";
 import { baseUrl, fetchApi } from "@/utils/fetchApi";
-import { motion } from "framer-motion";
+
 
 const Banner = ({
   purpose,
@@ -12,31 +12,33 @@ const Banner = ({
   linkName,
   imageUrl,
 }) => (
-  <Flex
-    flexWrap="wrap"
-    justifyContent="center"
-    alignItems="center"
-    margin="10"
-    backgroundColor='gray.100'
-    padding='5'
-    borderRadius='lg'
-    flexDirection={purpose === "Buy A HOME" ? "row-reverse" : "row"}
-  >
-    <Image src={imageUrl} width={500} height={300} alt="banner" />
-    <Box padding="5">
-      <Text color="gray.500" fontSize="sm" fontWeight="medium">
-        {purpose}
-      </Text>
-      <Text fontSize="2xl" fontWeight="bold" paddingBottom='3'>
-        {title1}
-        <br />
-        {title2}
-      </Text>
-      <Button fontSize="xl" bg="blue.300" color="white">
-        <Link href={linkName}>{buttonText}</Link>
-      </Button>
-    </Box>
-  </Flex>
+  <Fade in>
+    <Flex
+      flexWrap="wrap"
+      justifyContent="center"
+      alignItems="center"
+      margin="10"
+      backgroundColor='gray.100'
+      padding='5'
+      borderRadius='lg'
+      flexDirection={purpose === "Buy A HOME" ? "row-reverse" : "row"}
+    >
+      <Image src={imageUrl} width={500} height={300} alt="banner" />
+      <Box padding="5">
+        <Text color="gray.500" fontSize="sm" fontWeight="medium">
+          {purpose}
+        </Text>
+        <Text fontSize="2xl" fontWeight="bold" paddingBottom='3'>
+          {title1}
+          <br />
+          {title2}
+        </Text>
+        <Button fontSize="xl" bg="blue.300" color="white">
+          <Link href={linkName}>{buttonText}</Link>
+        </Button>
+      </Box>
+    </Flex>
+  </Fade>
 );
 
 export default function Home() {
